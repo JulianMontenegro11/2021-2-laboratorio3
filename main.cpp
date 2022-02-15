@@ -1,12 +1,33 @@
 #include "archivo_texto.h"
+#include "codi_metodo2.h"
+
 int main()
 {
+codificacion(4,"archivo.txt","final.txt");
+//escribir("AbCd","archivo.txt",true);
 
-    fstream archivo("texto.txt", fstream::out);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //fstream archivo("texto.txt", fstream::out);
 
     //===================== Escritura
-    archivo << "jyfuyf";
-    archivo.close();
+    //archivo << "jyfuyf";
+    //archivo.close();
     // funcion put permite escribir un caracter en el archivo
     //archivo.put('J');
     //funcion write, recibe dos parametros (cadena de caracteres y tamaño)

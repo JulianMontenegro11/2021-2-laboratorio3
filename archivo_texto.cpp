@@ -24,7 +24,7 @@ void escribir(string texto, string nombre, bool modo)
 
 }
 
-void leer(string nombre, bool modo)
+string leer(string nombre, bool modo)
 {
     string datos, datos2;
     fstream archivo;
@@ -34,8 +34,9 @@ void leer(string nombre, bool modo)
         if(archivo.is_open()){
             while(!archivo.eof()){
                 datos.push_back(archivo.get());
+
             }
-            archivo.close();
+            datos.pop_back();
         }
     }else{
         archivo.open(nombre, fstream::in | fstream::binary | fstream::ate); // se abre el archivo en modo binario
@@ -48,6 +49,8 @@ void leer(string nombre, bool modo)
 
 
         }else cout <<" El archivo no pudo ser abierto"<<endl;
-        archivo.close();
+
     }
+    archivo.close();
+    return datos;
 }
