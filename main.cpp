@@ -2,10 +2,11 @@
 int main()
 {
 
-    //fstream archivo("texto.txt", fstream::out);
+    fstream archivo("texto.txt", fstream::out);
 
     //===================== Escritura
-    //archivo << "Hola mundo, que tal todo?";
+    archivo << "jyfuyf";
+    archivo.close();
     // funcion put permite escribir un caracter en el archivo
     //archivo.put('J');
     //funcion write, recibe dos parametros (cadena de caracteres y tamaño)
@@ -13,7 +14,7 @@ int main()
 
     //cursor (es como un puntero que apunta a la posicion donde deseo escribir)
     //archivo.seekp(7);
-    //archivo.write("Ximena ",7);
+    //archivo.write("X ",7);
 
     //====================== Lectura
 
