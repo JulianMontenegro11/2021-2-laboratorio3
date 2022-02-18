@@ -3,9 +3,18 @@
 
 int main()
 {
-codificacion(4,"archivo.txt","final.txt");
+ int semilla=5,accion;
+//codificacion(semilla,"archivo.txt");
 //escribir("AbCd","archivo.txt",true);
 
+cout<<"para codificar oprima 1, para decodificar oprima 2"<<endl;
+cin>>accion;
+
+if(accion==1) {
+    codificacion(semilla,"archivo.txt");
+}else{
+    decodificacion(semilla,"archivo.txt");
+}
 
 
 

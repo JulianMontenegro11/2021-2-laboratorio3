@@ -2,14 +2,14 @@
 
 
 
-bool codificacion(int semilla, string nombre,string nombre2)
+bool codificacion(int semilla, string nombre)
 {
     string texto, binario;
     texto = leer(nombre, true); // en texto guardare lo que se lea en modo normal con la funcion leer
     binario=convertir_texto_binario(texto); // binario es e texto ya convertido en binario
     binario=reglas_codificacion(semilla,binario);
     texto=convertir_binario_texto(binario);
-    escribir(texto,nombre2,true);
+    escribir(texto,nombre,true);
     return true;
 
 }
@@ -77,7 +77,7 @@ string metodo2(string parte){
 
 string convertir_binario_texto(string binario){
     string datos, parte;
-    for(unsigned long long i=0; i<binario.length()-1;i++){
+    for(unsigned long long i=0; i<binario.length();i++){
         parte.push_back(binario[i]);
         if((i+1)%8==0 ){
             datos.push_back(convertir_letra(parte));
@@ -93,4 +93,45 @@ char convertir_letra(string parte){
         letra+=j*parte[i];
     }
     return letra;
+}
+
+//=================================================DECODIFICACION==================================================================
+
+bool decodificacion(int semilla, string nombre)
+{
+    string texto, binario;
+    texto=leer(nombre,true);
+    binario=convertir_texto_binario(texto);
+    binario=regla_decodificacion(semilla, binario);
+    texto=convertir_binario_texto(binario);
+    escribir(texto,nombre,true);
+    return true;
+
+}
+
+string regla_decodificacion(int semilla, string binario)
+{
+
+
+    string parte, datos;
+    for (unsigned long long i=0;i<binario.length();i++){
+        parte.push_back(binario[i]);
+        if(((i+1)%semilla==0) || i==binario.length()-1 ){
+            parte=metodo2_deco(parte);
+            datos.append(parte);
+            parte.clear();
+        }
+
+    }
+    return datos;
+}
+
+string metodo2_deco(string parte)
+{
+    string datos,auxiliar;
+    for(unsigned long long i=1;i<parte.length();i++){
+        datos.push_back(parte[i]);
+    }
+    datos.push_back(parte[0]);
+    return datos;
 }
